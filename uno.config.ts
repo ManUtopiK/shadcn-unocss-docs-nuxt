@@ -1,34 +1,24 @@
+import extractorMdc from '@unocss/extractor-mdc';
 import {
   defineConfig,
   presetAttributify,
   presetIcons,
   presetTypography,
   presetUno,
-  presetWebFonts,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss'
-import presetAnimations from 'unocss-preset-animations'
-import { builtinColors, presetShadcn } from 'unocss-preset-shadcn'
+} from 'unocss';
+import presetAnimations from 'unocss-preset-animations';
+import { builtinColors, presetShadcn } from 'unocss-preset-shadcn';
 
 export default defineConfig({
-  variants: [
-    {
-      // nth-[]:class
-      name: ':nth-child()',
-      match: (matcher: string) => {
-        const match = matcher.match(/^nth-\[(.+?):/)
-        if (!match)
-          return matcher
-        return {
-          // slice `hover:` prefix and passed to the next variants and rules
-          matcher: matcher.substring(match[0].length),
-          selector: s => `${s}:nth-child(${match[1]})`,
-        }
+  theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
       },
-      multiPass: true,
     },
-  ],
+  },
   presets: [
     presetUno(),
     presetAttributify(),
@@ -37,20 +27,23 @@ export default defineConfig({
       cdn: 'https://esm.sh/',
     }),
     presetTypography(),
-    presetWebFonts({
-      fonts: {
-        sans: 'Chivo',
-        mono: 'Chivo Mono',
-      },
-    }),
     presetAnimations(),
     presetShadcn(builtinColors.map(c => ({ color: c }))),
   ],
-  transformers: [
-    transformerDirectives(),
-    transformerVariantGroup({ separators: [':'] }),
+  shortcuts: [
+    [/^step$/, () => {
+      return `
+        [counter-increment:step]
+        before:[content:counter(step)] before:absolute before:w-9 before:h-9 before:bg-muted before:rounded-full before:font-mono before:font-medium before:text-center before:text-base before:inline-flex before:items-center before:justify-center before:-indent-px before:border-4 before:border-background
+        before:-ml-[50px] before:-mt-1
+      `;
+    }],
+  ],
+  extractors: [
+    extractorMdc(),
   ],
   content: {
+    filesystem: ['content/**/*.md'],
     pipeline: {
       include: [
         // the default
@@ -60,22 +53,4 @@ export default defineConfig({
       ],
     },
   },
-  preflights: [
-    {
-      getCSS: () => `
-        :root {
-          --vis-tooltip-background-color: none !important;
-          --vis-tooltip-border-color: none !important;
-          --vis-tooltip-text-color: none !important;
-          --vis-tooltip-shadow-color: none !important;
-          --vis-tooltip-backdrop-filter: none !important;
-          --vis-tooltip-padding: none !important;
-          
-          --vis-primary-color: var(--primary);
-          --vis-secondary-color: 160 81% 40%;
-          --vis-text-color: var(--muted-foreground);
-        }
-      `,
-    },
-  ],
-})
+});

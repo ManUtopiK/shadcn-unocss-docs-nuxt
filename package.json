@@ -63,12 +63,14 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.1",
+    "@unocss/extractor-mdc": "^0.62.4",
     "@unocss/nuxt": "^0.62.4",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "eslint": "^9.11.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "shiki": "^1.18.0",
+    "unocss-preset-animations": "^1.1.0",
     "unocss-preset-shadcn": "^0.3.1",
     "vue-tsc": "^2.1.6"
   }

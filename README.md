@@ -58,10 +58,10 @@ Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customiz
 
 MIT
 
-[npm-version-src]: https://img.shields.io/npm/v/shadcn-docs-nuxt?style=flat&colorA=18181b&colorB=18181b
-[npm-version-href]: https://npmjs.com/package/shadcn-docs-nuxt
-[npm-downloads-src]: https://img.shields.io/npm/dm/shadcn-docs-nuxt?style=flat&colorA=18181b&colorB=18181b
-[npm-downloads-href]: https://npmjs.com/package/shadcn-docs-nuxt
+[npm-version-src]: https://img.shields.io/npm/v/shadcn-unocss-docs-nuxt?style=flat&colorA=18181b&colorB=18181b
+[npm-version-href]: https://npmjs.com/package/shadcn-unocss-docs-nuxt
+[npm-downloads-src]: https://img.shields.io/npm/dm/shadcn-unocss-docs-nuxt?style=flat&colorA=18181b&colorB=18181b
+[npm-downloads-href]: https://npmjs.com/package/shadcn-unocss-docs-nuxt
 [license-src]: https://img.shields.io/github/license/ZTL-UwU/shadcn-docs-nuxt.svg?style=flat&colorA=18181b&colorB=18181b
 [license-href]: https://github.com/ZTL-UwU/shadcn-docs-nuxt/blob/main/LICENSE
 [nuxt-src]: https://img.shields.io/badge/Built%20With%20Nuxt-18181B?logo=nuxt.js

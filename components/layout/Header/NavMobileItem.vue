@@ -2,7 +2,7 @@
   <template v-if="item.links">
     <UiCollapsible v-model:open="isOpen">
       <UiCollapsibleTrigger class="w-full p-2 text-left">
-        <div class="flex w-full gap-1">
+        <div class="w-full flex gap-1">
           {{ item.title }}
           <Icon
             :name="isOpen ? 'lucide:chevrons-down-up' : 'lucide:chevrons-up-down'"
@@ -31,7 +31,7 @@
       </UiCollapsibleContent>
     </UiCollapsible>
   </template>
-  <NuxtLink v-else :to="item.to" :target="item.target" class="flex w-full p-2">
+  <NuxtLink v-else :to="item.to" :target="item.target" class="w-full flex p-2">
     {{ item.title }}
     <Icon name="lucide:arrow-up-right" class="ml-1 text-muted-foreground" size="12" />
   </NuxtLink>
@@ -39,13 +39,13 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  item: any;
-  index: number;
-}>();
+  item: any
+  index: number
+}>()
 
-const collapsed = useCollapsedMap();
-const isOpen = ref(collapsed.value.get(`mobile-header-nav${props.index}`) || false);
+const collapsed = useCollapsedMap()
+const isOpen = ref(collapsed.value.get(`mobile-header-nav${props.index}`) || false)
 watch(isOpen, (v) => {
-  collapsed.value.set(`mobile-header-nav${props.index}`, v);
-});
+  collapsed.value.set(`mobile-header-nav${props.index}`, v)
+})
 </script>

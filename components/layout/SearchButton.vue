@@ -3,7 +3,7 @@
     <UiButton
       v-if="style === 'input'"
       variant="outline"
-      class="h-8 w-full self-center rounded-md pr-1.5 font-normal text-muted-foreground hover:text-accent-foreground"
+      class="h-8 w-full self-center rounded-md pr-1.5 text-muted-foreground font-normal hover:text-accent-foreground"
       :class="[inAside ? 'mb-4' : 'md:w-40 lg:w-64']"
       @click="isOpen = true"
     >
@@ -28,6 +28,6 @@
 </template>
 
 <script setup lang="ts">
-const isOpen = ref(false);
-const { enable, inAside, style, placeholder } = useConfig().value.search;
+const isOpen = ref(false)
+const { enable, inAside, style, placeholder } = useConfig().value.search
 </script>

@@ -3,7 +3,7 @@
     class="relative overflow-hidden [&:not(:first-child)]:mt-5 [&:not(:last-child)]:mb-5"
     :class="[inGroup && 'mb-0 rounded-t-none border-none']"
   >
-    <div v-if="!inGroup && filename" class="flex border-b p-3 font-mono text-sm">
+    <div v-if="!inGroup && filename" class="flex border-b p-3 text-sm font-mono">
       <SmartIcon v-if="icon" :name="icon" class="mr-1.5 self-center" />
       {{ filename }}
       <CodeCopy :code="code" class="ml-auto mr-1" />
@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import type { BuiltinLanguage } from 'shiki';
-import ScrollBar from '../ui/scroll-area/ScrollBar.vue';
+import type { BuiltinLanguage } from 'shiki'
+import ScrollBar from '../ui/scroll-area/ScrollBar.vue'
 
 const props = defineProps({
   code: {
@@ -51,10 +51,10 @@ const props = defineProps({
     type: Array as () => number[],
     default: () => [],
   },
-});
+})
 
-const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon));
-const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language);
+const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon))
+const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language)
 </script>
 
 <style>

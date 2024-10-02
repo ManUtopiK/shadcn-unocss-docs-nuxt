@@ -79,65 +79,65 @@
 </template>
 
 <script setup lang="ts">
-import { VisuallyHidden } from 'radix-vue';
+import { VisuallyHidden } from 'radix-vue'
 
-const open = defineModel<boolean>('open');
-const colorMode = useColorMode();
-const { placeholderDetailed } = useConfig().value.search;
+const open = defineModel<boolean>('open')
+const colorMode = useColorMode()
+const { placeholderDetailed } = useConfig().value.search
 
-const activeSelect = ref(0);
+const activeSelect = ref(0)
 
 const { Meta_K, Ctrl_K } = useMagicKeys({
   passive: false,
   onEventFired(e) {
     if (e.key === 'k' && (e.metaKey || e.ctrlKey))
-      e.preventDefault();
+      e.preventDefault()
   },
-});
+})
 watch([Meta_K, Ctrl_K], (v) => {
   if (v[0] || v[1])
-    open.value = true;
-});
+    open.value = true
+})
 
-const input = ref('');
-const searchResult = ref();
-const searchLoading = ref(false);
+const input = ref('')
+const searchResult = ref()
+const searchLoading = ref(false)
 watch(
   input,
   async (v) => {
-    activeSelect.value = 0;
+    activeSelect.value = 0
     if (!v)
-      return;
+      return
 
-    searchLoading.value = true;
-    searchResult.value = (await searchContent(v)).value;
-    searchLoading.value = false;
+    searchLoading.value = true
+    searchResult.value = (await searchContent(v)).value
+    searchLoading.value = false
   },
-);
+)
 
 function getHighlightedContent(text: string) {
-  return text.replace(input.value, `<span class="font-semibold underline">${input.value}</span>`);
+  return text.replace(input.value, `<span class="font-semibold underline">${input.value}</span>`)
 }
 
-const { navKeyFromPath } = useContentHelpers();
-const { navigation } = useContent();
+const { navKeyFromPath } = useContentHelpers()
+const { navigation } = useContent()
 function getItemIcon(path: string) {
-  return navKeyFromPath(path, 'icon', navigation.value);
+  return navKeyFromPath(path, 'icon', navigation.value)
 }
 
 watch(activeSelect, (value) => {
-  document.querySelector(`[id="${value}"]`)?.scrollIntoView({ block: 'nearest' });
-});
+  document.querySelector(`[id="${value}"]`)?.scrollIntoView({ block: 'nearest' })
+})
 
 async function handleEnter() {
   if (searchResult.value[activeSelect.value]?.id) {
-    await navigateTo(searchResult.value[activeSelect.value].id);
-    open.value = false;
+    await navigateTo(searchResult.value[activeSelect.value].id)
+    open.value = false
   }
 }
 
 function handleNavigate(delta: -1 | 1) {
   if (activeSelect.value + delta >= 0 && activeSelect.value + delta < searchResult.value.length)
-    activeSelect.value += delta;
+    activeSelect.value += delta
 }
 </script>

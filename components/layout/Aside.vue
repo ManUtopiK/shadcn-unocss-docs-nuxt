@@ -6,7 +6,7 @@
       <li v-for="link in navigation" :key="link.id">
         <NuxtLink
           :to="link._path"
-          class="mb-1 flex w-full gap-2 rounded-md px-3 py-2 transition-all hover:bg-muted"
+          class="mb-1 w-full flex gap-2 rounded-md px-3 py-2 transition-all hover:bg-muted"
           :class="[
             path.startsWith(link._path) && 'bg-muted font-semibold text-primary hover:bg-muted',
           ]"
@@ -26,24 +26,24 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ isMobile: boolean }>();
+defineProps<{ isMobile: boolean }>()
 
-const { navDirFromPath } = useContentHelpers();
-const { navigation } = useContent();
-const config = useConfig();
+const { navDirFromPath } = useContentHelpers()
+const { navigation } = useContent()
+const config = useConfig()
 
 const tree = computed(() => {
-  const route = useRoute();
-  const path = route.path.split('/');
+  const route = useRoute()
+  const path = route.path.split('/')
   if (config.value.aside.useLevel) {
-    const leveledPath = path.splice(0, 2).join('/');
+    const leveledPath = path.splice(0, 2).join('/')
 
-    const dir = navDirFromPath(leveledPath, navigation.value);
-    return dir ?? [];
+    const dir = navDirFromPath(leveledPath, navigation.value)
+    return dir ?? []
   }
 
-  return navigation.value;
-});
+  return navigation.value
+})
 
-const path = computed(() => useRoute().path);
+const path = computed(() => useRoute().path)
 </script>

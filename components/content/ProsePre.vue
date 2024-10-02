@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BuiltinLanguage } from 'shiki';
+import type { BuiltinLanguage } from 'shiki'
 
 defineProps({
   code: {
@@ -36,7 +36,7 @@ defineProps({
     type: [String, Object],
     default: null,
   },
-});
+})
 </script>
 
 <style>

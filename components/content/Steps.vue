@@ -1,6 +1,6 @@
 <template>
   <div
-    class="[&>li]:step ml-4 border-l pl-8 [counter-reset:step] [&:not(:first-child)]:mt-6 [&:not(:last-child)]:mb-12"
+    class="[counter-reset:step] ml-4 border-l pl-8 [&:not(:first-child)]:mt-6 [&:not(:last-child)]:mb-12 [&>li]:step"
     :class="levelClass[level]"
   >
     <slot />
@@ -9,10 +9,10 @@
 
 <script setup lang="ts">
 withDefaults(defineProps<{
-  level?: '1' | '2' | '3' | '4' | '5' | '6';
+  level?: '1' | '2' | '3' | '4' | '5' | '6'
 }>(), {
   level: '3',
-});
+})
 
 const levelClass = {
   1: '[&>h1]:step',
@@ -21,5 +21,5 @@ const levelClass = {
   4: '[&>h4]:step',
   5: '[&>h5]:step',
   6: '[&>h6]:step',
-};
+}
 </script>

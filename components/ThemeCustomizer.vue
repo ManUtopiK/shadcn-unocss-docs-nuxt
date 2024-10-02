@@ -1,7 +1,7 @@
 <template>
   <div class="grid gap-6">
     <div class="grid space-y-1">
-      <h1 class="text-lg font-semibold text-foreground">
+      <h1 class="text-lg text-foreground font-semibold">
         Customize
       </h1>
       <p class="text-sm text-muted-foreground">
@@ -18,7 +18,7 @@
             :class="{ 'border-2 border-primary': theme === color }"
             @click="setTheme(color)"
           >
-            <span class="flex size-5 items-center justify-center rounded-full" :style="{ backgroundColor: backgroundColor(color) }">
+            <span class="size-5 flex items-center justify-center rounded-full" :style="{ backgroundColor: backgroundColor(color) }">
               <Icon v-if="theme === color" name="lucide:check" size="16" class="text-white" />
             </span>
             <span class="text-xs capitalize">{{ color }}</span>
@@ -77,9 +77,9 @@
 </template>
 
 <script setup lang="ts">
-import { themes } from '@/lib/registry/themes';
+import { themes } from '@/lib/registry/themes'
 
-const { themeClass, theme, radius, setTheme, setRadius } = useThemes();
+const { themeClass, theme, radius, setTheme, setRadius } = useThemes()
 
 // Create an array of color values
 const allColors: Color[] = [
@@ -95,35 +95,35 @@ const allColors: Color[] = [
   'neutral',
   'yellow',
   'violet',
-];
+]
 
-const RADII = [0, 0.25, 0.5, 0.75, 1];
+const RADII = [0, 0.25, 0.5, 0.75, 1]
 
 // Whenever the theme value changes, update the document class list
 watch(theme, () => {
-  setClassTheme();
-});
+  setClassTheme()
+})
 
 // Whenever the radius value changes, update the document style
 watch(radius, () => {
-  setStyleRadius();
-});
+  setStyleRadius()
+})
 
 function setClassTheme() {
   document.body.classList.remove(
     ...allColors.map(color => `theme-${color}`),
-  );
-  document.body.classList.add(themeClass.value);
+  )
+  document.body.classList.add(themeClass.value)
 }
 
 function setStyleRadius() {
-  document.body.style.setProperty('--radius', `${radius.value}rem`);
+  document.body.style.setProperty('--radius', `${radius.value}rem`)
 }
 
 function backgroundColor(color: Color) {
-  const bg = themes.find(theme => theme.name === color);
-  return `hsl(${bg?.activeColor.light})`;
+  const bg = themes.find(theme => theme.name === color)
+  return `hsl(${bg?.activeColor.light})`
 }
 
-const colorMode = useColorMode();
+const colorMode = useColorMode()
 </script>

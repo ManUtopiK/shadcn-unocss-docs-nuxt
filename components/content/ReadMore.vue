@@ -6,21 +6,21 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  title?: string;
-  to: string;
-  target?: string;
-}>();
+  title?: string
+  to: string
+  target?: string
+}>()
 
 const computedTitle = computed<string>(
   () => {
     if (props.title)
-      return props.title;
+      return props.title
 
     try {
-      return useBreadcrumb(props.to).map(x => x.title).join(' > ');
+      return useBreadcrumb(props.to).map(x => x.title).join(' > ')
     } catch {
-      return props.to;
+      return props.to
     }
   },
-);
+)
 </script>

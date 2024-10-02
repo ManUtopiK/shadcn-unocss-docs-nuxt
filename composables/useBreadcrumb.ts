@@ -1,24 +1,24 @@
 interface BreadcrumbItem {
-  title: string;
-  href: string;
+  title: string
+  href: string
 }
 
 export function useBreadcrumb(url: string): BreadcrumbItem[] {
-  const { navigation } = useContent();
+  const { navigation } = useContent()
 
-  const breadcrumbItems: BreadcrumbItem[] = [];
+  const breadcrumbItems: BreadcrumbItem[] = []
   // Remove empty segments
-  const segments = url.split('/').filter(segment => segment !== '');
+  const segments = url.split('/').filter(segment => segment !== '')
 
   // Construct breadcrumb for each segment
-  let href = '';
-  let nav = navigation.value;
+  let href = ''
+  let nav = navigation.value
   for (let i = 0; i < segments.length; i++) {
-    const segment = segments[i].replace('.html', '');
-    href += `/${segment}`;
-    const page = nav.find(x => (x._path as string) === href);
-    nav = page?.children;
-    breadcrumbItems.push({ title: page?.title ?? segment, href });
+    const segment = segments[i].replace('.html', '')
+    href += `/${segment}`
+    const page = nav.find(x => (x._path as string) === href)
+    nav = page?.children
+    breadcrumbItems.push({ title: page?.title ?? segment, href })
   }
-  return breadcrumbItems;
+  return breadcrumbItems
 }

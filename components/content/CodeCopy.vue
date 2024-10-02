@@ -18,30 +18,30 @@
 </template>
 
 <script setup lang="ts">
-import { useToast } from '@/components/ui/toast/use-toast';
+import { useToast } from '@/components/ui/toast/use-toast'
 
 const props = defineProps<{
-  code: string;
-}>();
+  code: string
+}>()
 
-const { toast } = useToast();
+const { toast } = useToast()
 
-const { copy } = useClipboard({ source: props.code });
-const copied = ref(false);
+const { copy } = useClipboard({ source: props.code })
+const copied = ref(false)
 
 async function handleClick() {
-  await copy(props.code);
-  copied.value = true;
+  await copy(props.code)
+  copied.value = true
 
   if (useConfig().value.main.codeCopyToast) {
     toast({
       description: useConfig().value.main.codeCopyToastText,
-    });
+    })
   }
 }
 
-const checkIconRef = ref<HTMLElement>();
+const checkIconRef = ref<HTMLElement>()
 onClickOutside(checkIconRef, () => {
-  copied.value = false;
-});
+  copied.value = false
+})
 </script>

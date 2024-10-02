@@ -1,15 +1,15 @@
 {
-  "name": "shadcn-docs-nuxt",
+  "name": "shadcn-unocss-docs-nuxt",
   "type": "module",
-  "version": "0.5.6",
-  "author": "Tony Zhang <zhangtianli2006@gmail.com>",
+  "version": "0.0.1",
+  "author": "Emmanuel Salomon <emmanuel.salomon@gmail.com>",
   "license": "MIT",
   "homepage": "https://shadcn-docs.nuxt.dev/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZTL-UwU/shadcn-docs-nuxt.git"
+    "url": "git+https://github.com/ManUtopiK/shadcn-unocss-docs-nuxt.git"
   },
-  "bugs": "https://github.com/ZTL-UwU/shadcn-docs-nuxt/issues",
+  "bugs": "https://github.com/ManUtopiK/shadcn-unocss-docs-nuxt/issues",
   "keywords": [
     "markdown",
     "docs",
@@ -17,7 +17,8 @@
     "nuxt",
     "documentation-tool",
     "nuxt-content",
-    "shadcn-vue"
+    "shadcn-vue",
+    "unocss"
   ],
   "main": "./nuxt.config.ts",
   "files": [
@@ -56,18 +57,23 @@
     "radix-vue": "^1.9.6",
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.6.2",
     "vue": "^3.5.8",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.1",
+    "@iconify-json/vscode-icons": "^1.2.2",
+    "@unocss/eslint-plugin": "^0.63.1",
+    "@unocss/extractor-mdc": "^0.62.4",
+    "@unocss/nuxt": "^0.62.4",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "eslint": "^9.11.1",
-    "eslint-plugin-tailwindcss": "^3.17.4",
     "shiki": "^1.18.0",
+    "unocss": "^0.63.1",
+    "unocss-preset-animations": "^1.1.0",
+    "unocss-preset-shadcn": "^0.3.1",
     "vue-tsc": "^2.1.6"
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
+  <section class="mx-auto max-w-[980px] flex flex-col items-center gap-2 py-8 lg:py-24 md:py-12 lg:pb-20 md:pb-8">
     <NuxtLink
       v-if="announcement"
       :to="announcement.to"
@@ -24,7 +24,7 @@
       <ContentSlot :use="$slots.description" unwrap="p" />
     </span>
 
-    <section class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
+    <section class="w-full flex items-center justify-center py-4 space-x-4 md:pb-10">
       <NuxtLink
         v-for="(action, i) in actions"
         :key="i"
@@ -44,18 +44,18 @@
 <script setup lang="ts">
 defineProps<{
   announcement?: {
-    to?: string;
-    target?: string;
-    icon?: string;
-    title: string;
-  };
+    to?: string
+    target?: string
+    icon?: string
+    title: string
+  }
   actions: [{
-    name: string;
-    leftIcon?: string;
-    rightIcon?: string;
-    variant?: 'default' | 'link' | 'destructive' | 'outline' | 'secondary' | 'ghost';
-    to: string;
-    target?: string;
-  }];
-}>();
+    name: string
+    leftIcon?: string
+    rightIcon?: string
+    variant?: 'default' | 'link' | 'destructive' | 'outline' | 'secondary' | 'ghost'
+    to: string
+    target?: string
+  }]
+}>()
 </script>

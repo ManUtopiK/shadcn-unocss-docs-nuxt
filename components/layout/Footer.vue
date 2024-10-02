@@ -1,6 +1,6 @@
 <template>
   <footer class="py-6 text-muted-foreground md:px-8 md:py-0">
-    <div class="container flex flex-col items-center justify-between gap-2 md:h-24 md:flex-row">
+    <div class="flex flex-col items-center justify-between gap-2 container md:h-24 md:flex-row">
       <span class="text-sm">
         {{ footer.credits }}
       </span>
@@ -21,5 +21,5 @@
 </template>
 
 <script setup lang="ts">
-const { footer } = useConfig().value;
+const { footer } = useConfig().value
 </script>

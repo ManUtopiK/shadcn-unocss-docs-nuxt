@@ -1,5 +1,5 @@
 <template>
-  <div class="group-has-[div]:mt-0 [&:not(:first-child)]:mt-5">
+  <div class="[&:not(:first-child)]:mt-5 group-has-[div]:mt-0">
     <NuxtLink :to="to" :target="target">
       <UiCard class="relative h-full transition-all" :class="[to && 'hover:bg-muted']">
         <UiCardHeader v-if="icon || title || $slots.title || description || $slots.description">
@@ -29,12 +29,12 @@
 
 <script setup lang="ts">
 defineProps<{
-  title?: string;
-  description?: string;
-  footer?: string;
-  content?: string;
-  to?: string;
-  target?: string;
-  icon?: string;
-}>();
+  title?: string
+  description?: string
+  footer?: string
+  content?: string
+  to?: string
+  target?: string
+  icon?: string
+}>()
 </script>

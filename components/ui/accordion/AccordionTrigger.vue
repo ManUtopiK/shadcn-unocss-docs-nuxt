@@ -13,7 +13,7 @@
       <slot name="icon">
         <Icon
           name="lucide:chevron-down"
-          class="flex size-4 shrink-0 transition-transform duration-200"
+          class="size-4 flex shrink-0 transition-transform duration-200"
         />
       </slot>
     </AccordionTrigger>
@@ -21,19 +21,19 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 import {
   AccordionHeader,
   AccordionTrigger,
   type AccordionTriggerProps,
-} from 'radix-vue';
-import { computed, type HTMLAttributes } from 'vue';
+} from 'radix-vue'
+import { computed, type HTMLAttributes } from 'vue'
 
-const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>();
+const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>()
 
 const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
+  const { class: _, ...delegated } = props
 
-  return delegated;
-});
+  return delegated
+})
 </script>

@@ -5,7 +5,7 @@
   >
     <UiCollapsible v-if="link.children" v-model:open="isOpen">
       <UiCollapsibleTrigger class="w-full text-left">
-        <div class="flex w-full gap-1">
+        <div class="w-full flex gap-1">
           <SmartIcon
             v-if="link.icon"
             :name="link.icon"
@@ -29,7 +29,7 @@
     <NuxtLink
       v-else
       :to="link._path"
-      class="flex w-full gap-1 text-muted-foreground hover:underline"
+      class="w-full flex gap-1 text-muted-foreground hover:underline"
       :class="[isActive && 'font-medium text-primary']"
     >
       <SmartIcon
@@ -46,19 +46,19 @@
 </template>
 
 <script setup lang="ts">
-import type { NavItem } from '@nuxt/content';
+import type { NavItem } from '@nuxt/content'
 
 const props = defineProps<{
-  link: NavItem;
-  level: number;
-}>();
+  link: NavItem
+  level: number
+}>()
 
-const { collapse } = useConfig().value.aside;
+const { collapse } = useConfig().value.aside
 
-const collapsed = useCollapsedMap();
-const isOpen = ref(collapsed.value.get(props.link._path) || (props.level < 1 && !collapse));
+const collapsed = useCollapsedMap()
+const isOpen = ref(collapsed.value.get(props.link._path) || (props.level < 1 && !collapse))
 watch(isOpen, (v) => {
-  collapsed.value.set(props.link._path, v);
-});
-const isActive = computed(() => props.link._path === useRoute().path);
+  collapsed.value.set(props.link._path, v)
+})
+const isActive = computed(() => props.link._path === useRoute().path)
 </script>

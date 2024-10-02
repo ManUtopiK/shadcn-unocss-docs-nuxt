@@ -3,7 +3,7 @@
     class="relative overflow-hidden [&:not(:first-child)]:mt-5 [&:not(:last-child)]:mb-5"
     :class="[inGroup && 'mb-0 rounded-t-none border-none']"
   >
-    <div v-if="!inGroup && filename" class="flex border-b p-3 font-mono text-sm">
+    <div v-if="!inGroup && filename" class="flex border-b p-3 text-sm font-mono">
       <SmartIcon v-if="icon" :name="icon" class="mr-1.5 self-center" />
       {{ filename }}
       <CodeCopy :code="code" class="ml-auto mr-1" />

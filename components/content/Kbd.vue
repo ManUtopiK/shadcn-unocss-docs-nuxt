@@ -1,6 +1,6 @@
 <template>
   <kbd
-    class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted font-sans font-medium"
+    class="pointer-events-none h-5 inline-flex select-none items-center gap-1 border border-border rounded bg-muted font-medium font-sans"
     :class="sizeClasses[size]"
   >
     <slot />

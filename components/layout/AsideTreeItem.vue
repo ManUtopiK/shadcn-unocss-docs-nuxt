@@ -5,7 +5,7 @@
   >
     <UiCollapsible v-if="link.children" v-model:open="isOpen">
       <UiCollapsibleTrigger class="w-full text-left">
-        <div class="flex w-full gap-1">
+        <div class="w-full flex gap-1">
           <SmartIcon
             v-if="link.icon"
             :name="link.icon"
@@ -29,7 +29,7 @@
     <NuxtLink
       v-else
       :to="link._path"
-      class="flex w-full gap-1 text-muted-foreground hover:underline"
+      class="w-full flex gap-1 text-muted-foreground hover:underline"
       :class="[isActive && 'font-medium text-primary']"
     >
       <SmartIcon

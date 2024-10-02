@@ -6,7 +6,7 @@
       <li v-for="link in navigation" :key="link.id">
         <NuxtLink
           :to="link._path"
-          class="mb-1 flex w-full gap-2 rounded-md px-3 py-2 transition-all hover:bg-muted"
+          class="mb-1 w-full flex gap-2 rounded-md px-3 py-2 transition-all hover:bg-muted"
           :class="[
             path.startsWith(link._path) && 'bg-muted font-semibold text-primary hover:bg-muted',
           ]"

@@ -2,14 +2,14 @@
   <div class="[&:not(:first-child)]:mt-4 [&:not(:first-child)]:pt-4">
     <div class="mb-2">
       <div class="flex space-x-2">
-        <span class="text-md font-bold text-primary">
+        <span class="text-md text-primary font-bold">
           {{ name }}
         </span>
-        <span v-if="required" class="self-center font-mono text-sm text-muted-foreground">
+        <span v-if="required" class="self-center text-sm text-muted-foreground font-mono">
           {{ fieldRequiredText }}
         </span>
         <span class="flex-1" />
-        <span class="self-center font-mono text-sm text-muted-foreground">
+        <span class="self-center text-sm text-muted-foreground font-mono">
           {{ type }}
         </span>
       </div>

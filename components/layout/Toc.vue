@@ -3,7 +3,7 @@
     <UiScrollArea
       v-if="!isSmall"
       orientation="vertical"
-      class="z-30 hidden h-[calc(100vh-6.5rem)] overflow-y-auto md:block lg:block"
+      class="z-30 hidden h-[calc(100vh-6.5rem)] overflow-y-auto lg:block md:block"
       type="hover"
     >
       <p class="mb-2 text-base font-semibold">
@@ -20,7 +20,7 @@
           :key="i"
           :to="link.to"
           :target="link.target"
-          class="flex w-full gap-1 underline-offset-4 hover:underline [&:not(:first-child)]:pt-3"
+          class="w-full flex gap-1 underline-offset-4 [&:not(:first-child)]:pt-3 hover:underline"
         >
           <SmartIcon
             v-if="link.icon"
@@ -38,7 +38,7 @@
       class="block w-full text-sm lg:hidden"
       :class="{ 'border-b': border }"
     >
-      <UiCollapsibleTrigger class="flex w-full px-4 py-3 text-left font-medium">
+      <UiCollapsibleTrigger class="w-full flex px-4 py-3 text-left font-medium">
         {{ title }}
         <Icon
           name="lucide:chevron-right"

@@ -57,6 +57,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^3.7.1
         version: 3.7.3(@typescript-eslint/utils@8.8.0(eslint@9.11.1(jiti@2.1.0))(typescript@5.6.2))(@unocss/eslint-plugin@0.63.1(eslint@9.11.1(jiti@2.1.0))(typescript@5.6.2))(@vue/compiler-sfc@3.5.10)(eslint@9.11.1(jiti@2.1.0))(typescript@5.6.2)
+      '@iconify-json/vscode-icons':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@unocss/eslint-plugin':
         specifier: ^0.63.1
         version: 0.63.1(eslint@9.11.1(jiti@2.1.0))(typescript@5.6.2)
@@ -827,6 +830,9 @@ packages:
 
   '@iconify-json/lucide@1.2.6':
     resolution: {integrity: sha512-HVLLxmG/rJ91GqpEE97OHdEwb/LfjwMVdynWIrnjvNRQNoKvrYG2N2+jABSBibEhnYQOfv+k8/7X6fK44PEtKA==}
+
+  '@iconify-json/vscode-icons@1.2.2':
+    resolution: {integrity: sha512-bTpT0HJDRqGkxQv8oiETNHLEnBZpnA1QaRD35CQyO7M7qgWVLx2xwn/lK6e4waojmlPC3ckMBx3WFIUUn0/Jdg==}
 
   '@iconify/collections@1.0.466':
     resolution: {integrity: sha512-u6mYAV6oaoE+aP74MA0/Q3D/WJaK6ivHMEbPIhVw7YnlKs0OjXrshJccckKVSXdLEI+5zyWfDAuYiLFNvbADrg==}
@@ -6034,6 +6040,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.0': {}
 
   '@iconify-json/lucide@1.2.6':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/vscode-icons@1.2.2':
     dependencies:
       '@iconify/types': 2.0.0
 

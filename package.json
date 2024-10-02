@@ -62,6 +62,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.1",
+    "@iconify-json/vscode-icons": "^1.2.2",
     "@unocss/eslint-plugin": "^0.63.1",
     "@unocss/extractor-mdc": "^0.62.4",
     "@unocss/nuxt": "^0.62.4",

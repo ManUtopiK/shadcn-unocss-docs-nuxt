@@ -26,24 +26,24 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ isMobile: boolean }>();
+defineProps<{ isMobile: boolean }>()
 
-const { navDirFromPath } = useContentHelpers();
-const { navigation } = useContent();
-const config = useConfig();
+const { navDirFromPath } = useContentHelpers()
+const { navigation } = useContent()
+const config = useConfig()
 
 const tree = computed(() => {
-  const route = useRoute();
-  const path = route.path.split('/');
+  const route = useRoute()
+  const path = route.path.split('/')
   if (config.value.aside.useLevel) {
-    const leveledPath = path.splice(0, 2).join('/');
+    const leveledPath = path.splice(0, 2).join('/')
 
-    const dir = navDirFromPath(leveledPath, navigation.value);
-    return dir ?? [];
+    const dir = navDirFromPath(leveledPath, navigation.value)
+    return dir ?? []
   }
 
-  return navigation.value;
-});
+  return navigation.value
+})
 
-const path = computed(() => useRoute().path);
+const path = computed(() => useRoute().path)
 </script>

@@ -1,4 +1,4 @@
-import { defu } from 'defu';
+import { defu } from 'defu'
 
 const defaultConfig: DefaultConfig = {
   site: {
@@ -97,23 +97,23 @@ const defaultConfig: DefaultConfig = {
     placeholder: 'Search...',
     placeholderDetailed: 'Search documentation...',
   },
-};
+}
 
 export function useConfig() {
-  const appConfig = computed(() => useAppConfig()?.shadcnDocs || {});
+  const appConfig = computed(() => useAppConfig()?.shadcnDocs || {})
 
-  const { navKeyFromPath } = useContentHelpers();
-  const { navigation, page } = useContent();
-  const route = useRoute();
+  const { navKeyFromPath } = useContentHelpers()
+  const { navigation, page } = useContent()
+  const route = useRoute()
 
   return computed(
     () => {
-      const processedConfig = defu(appConfig.value, defaultConfig);
-      const header = processedConfig.header;
-      const main = processedConfig.main;
-      const aside = processedConfig.aside;
-      const footer = processedConfig.footer;
-      const toc = processedConfig.toc;
+      const processedConfig = defu(appConfig.value, defaultConfig)
+      const header = processedConfig.header
+      const main = processedConfig.main
+      const aside = processedConfig.aside
+      const footer = processedConfig.footer
+      const toc = processedConfig.toc
 
       return {
         ...appConfig.value,
@@ -143,7 +143,7 @@ export function useConfig() {
           ...navKeyFromPath(route.path, 'footer', navigation.value || []),
           ...page.value?.footer,
         } as typeof footer,
-      };
+      }
     },
-  );
+  )
 }

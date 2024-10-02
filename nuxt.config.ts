@@ -1,7 +1,7 @@
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const currentDir = dirname(fileURLToPath(import.meta.url));
+const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -60,4 +60,4 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: '2024-07-05',
-});
+})

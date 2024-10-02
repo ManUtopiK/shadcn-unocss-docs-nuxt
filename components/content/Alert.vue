@@ -22,16 +22,16 @@
 
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
-  title?: string;
-  icon?: string;
-  type?: 'default' | 'info' | 'warning' | 'success' | 'danger';
-  to?: string;
-  target?: string;
-  external?: boolean;
+  title?: string
+  icon?: string
+  type?: 'default' | 'info' | 'warning' | 'success' | 'danger'
+  to?: string
+  target?: string
+  external?: boolean
 }>(), {
   type: 'default',
   external: undefined,
-});
+})
 
 const typeTwClass = {
   default: '',
@@ -39,7 +39,7 @@ const typeTwClass = {
   warning: 'border-amber-600 text-amber-600 [&>svg]:text-amber-600',
   success: 'border-green-600 text-green-600 [&>svg]:text-green-600',
   danger: 'border-red-600 text-red-600 [&>svg]:text-red-600',
-};
+}
 
 async function alertClick() {
   if (props.to) {
@@ -47,11 +47,11 @@ async function alertClick() {
       await navigateTo(props.to, {
         external: props.external ?? props.to.startsWith('http'),
         open: { target: props.target },
-      });
+      })
     } else {
       await navigateTo(props.to, {
         external: props.external ?? props.to.startsWith('http'),
-      });
+      })
     }
   }
 }

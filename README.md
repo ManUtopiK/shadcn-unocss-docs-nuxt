@@ -1,11 +1,19 @@
 ![Hero](https://github.com/user-attachments/assets/555cfd9b-3461-40ff-b4fa-6df7f2ba44f5)
 
-# shadcn-docs-nuxt
+# shadcn-unocss-docs-nuxt
 
 [![built with nuxt][nuxt-src]][nuxt-href]
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
+
+> [!NOTE]
+> Fork of [shadcn-docs-nuxt](https://github.com/ZTL-UwU/shadcn-docs-nuxt) using [unocss](https://github.com/unocss/unocss) instead of tailwindcss.
+> Last update from [this commit](https://github.com/ZTL-UwU/shadcn-docs-nuxt/commit/813718f348428f425dd7fba2bfd3ef26779a639c).
+> Changes made :
+> - replaced tailwindcss with unocss to get same result with theme customization behavior
+> - eslint config use unocss instead of tailwindcss (classes order change)
+> - lint with `semi: false`
 
 Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customizable. Compatible. Open Source.**
 

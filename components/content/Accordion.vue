@@ -11,10 +11,10 @@
 
 <script setup lang="ts">
 withDefaults(defineProps<{
-  type?: 'single' | 'multiple';
-  collapsible?: boolean;
-  defaultValue: string | string[];
+  type?: 'single' | 'multiple'
+  collapsible?: boolean
+  defaultValue: string | string[]
 }>(), {
   type: 'single',
-});
+})
 </script>

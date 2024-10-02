@@ -29,12 +29,12 @@
 
 <script setup lang="ts">
 defineProps<{
-  title?: string;
-  description?: string;
-  footer?: string;
-  content?: string;
-  to?: string;
-  target?: string;
-  icon?: string;
-}>();
+  title?: string
+  description?: string
+  footer?: string
+  content?: string
+  to?: string
+  target?: string
+  icon?: string
+}>()
 </script>

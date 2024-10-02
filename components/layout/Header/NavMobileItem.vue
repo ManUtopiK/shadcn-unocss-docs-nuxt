@@ -39,13 +39,13 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  item: any;
-  index: number;
-}>();
+  item: any
+  index: number
+}>()
 
-const collapsed = useCollapsedMap();
-const isOpen = ref(collapsed.value.get(`mobile-header-nav${props.index}`) || false);
+const collapsed = useCollapsedMap()
+const isOpen = ref(collapsed.value.get(`mobile-header-nav${props.index}`) || false)
 watch(isOpen, (v) => {
-  collapsed.value.set(`mobile-header-nav${props.index}`, v);
-});
+  collapsed.value.set(`mobile-header-nav${props.index}`, v)
+})
 </script>

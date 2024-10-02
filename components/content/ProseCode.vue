@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import type { BuiltinLanguage } from 'shiki';
-import ScrollBar from '../ui/scroll-area/ScrollBar.vue';
+import type { BuiltinLanguage } from 'shiki'
+import ScrollBar from '../ui/scroll-area/ScrollBar.vue'
 
 const props = defineProps({
   code: {
@@ -51,10 +51,10 @@ const props = defineProps({
     type: Array as () => number[],
     default: () => [],
   },
-});
+})
 
-const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon));
-const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language);
+const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon))
+const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language)
 </script>
 
 <style>

@@ -12,13 +12,13 @@
 </template>
 
 <script setup lang="ts">
-import { useId } from 'radix-vue';
+import { useId } from 'radix-vue'
 
 defineProps<{
-  value?: string;
-  title?: string;
-  content?: string;
-}>();
+  value?: string
+  title?: string
+  content?: string
+}>()
 
-const autoValue = useId();
+const autoValue = useId()
 </script>

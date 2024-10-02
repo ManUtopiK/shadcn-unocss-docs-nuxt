@@ -54,10 +54,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ isSmall: boolean }>();
+defineProps<{ isSmall: boolean }>()
 
-const { toc } = useContent();
-const { title, links } = useConfig().value.toc;
-const { border } = useConfig().value.header;
-const isOpen = ref(false);
+const { toc } = useContent()
+const { title, links } = useConfig().value.toc
+const { border } = useConfig().value.header
+const isOpen = ref(false)
 </script>

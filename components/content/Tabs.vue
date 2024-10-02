@@ -71,24 +71,24 @@
 </template>
 
 <script setup lang="ts">
-import ScrollBar from '../ui/scroll-area/ScrollBar.vue';
+import ScrollBar from '../ui/scroll-area/ScrollBar.vue'
 
 withDefaults(defineProps<{
-  variant?: 'separate' | 'card';
-  padded?: boolean;
+  variant?: 'separate' | 'card'
+  padded?: boolean
 }>(), {
   variant: 'separate',
   padded: true,
-});
+})
 
-const activeTabIndex = ref(0);
+const activeTabIndex = ref(0)
 
-const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon));
+const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon))
 function icon(props: any) {
-  return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language);
+  return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language)
 }
 
 function label(props: any) {
-  return props?.label || props?.filename;
+  return props?.label || props?.filename
 }
 </script>

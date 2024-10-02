@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-const open = ref(false);
+const open = ref(false)
 
 // Close sheet on navigation
 watch(() => useRoute().path, () => {
-  open.value = false;
-});
+  open.value = false
+})
 </script>

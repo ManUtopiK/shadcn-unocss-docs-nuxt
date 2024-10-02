@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  icon?: string;
-  to?: string;
-  target?: string;
-}>();
+  icon?: string
+  to?: string
+  target?: string
+}>()
 </script>

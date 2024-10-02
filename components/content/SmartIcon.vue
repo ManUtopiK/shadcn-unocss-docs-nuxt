@@ -16,16 +16,16 @@
 </template>
 
 <script setup lang="ts">
-import { stringToIcon, validateIconName } from '@iconify/utils';
+import { stringToIcon, validateIconName } from '@iconify/utils'
 
 withDefaults(defineProps<{
-  name: string;
-  size?: number;
+  name: string
+  size?: number
 }>(), {
   size: 16,
-});
+})
 
 function checkIcon(name: string): boolean {
-  return validateIconName(stringToIcon(name));
+  return validateIconName(stringToIcon(name))
 }
 </script>

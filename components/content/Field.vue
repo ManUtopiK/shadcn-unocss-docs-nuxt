@@ -1,15 +1,14 @@
 <template>
   <div class="[&:not(:first-child)]:mt-4 [&:not(:first-child)]:pt-4">
     <div class="mb-2">
-      <div class="flex space-x-2">
-        <span class="text-md text-primary font-bold">
+      <div class="flex items-center gap-2">
+        <span class="text-md font-bold text-primary">
           {{ name }}
         </span>
-        <span v-if="required" class="self-center text-sm text-muted-foreground font-mono">
+        <span v-if="required" class="font-mono text-sm text-muted-foreground">
           {{ fieldRequiredText }}
         </span>
-        <span class="flex-1" />
-        <span class="self-center text-sm text-muted-foreground font-mono">
+        <span class="ml-auto font-mono text-sm text-muted-foreground">
           {{ type }}
         </span>
       </div>

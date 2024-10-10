@@ -9,12 +9,14 @@
 
 > [!NOTE]
 > Fork of [shadcn-docs-nuxt](https://github.com/ZTL-UwU/shadcn-docs-nuxt) using [unocss](https://github.com/unocss/unocss) instead of tailwindcss.
-> Last update from [this commit](https://github.com/ZTL-UwU/shadcn-docs-nuxt/commit/813718f348428f425dd7fba2bfd3ef26779a639c).
+> Last update from [this commit](https://github.com/ZTL-UwU/shadcn-docs-nuxt/commit/0343fbc553e3c438b220a1c11e433cdd416c0786) ![](https://img.shields.io/npm/v/shadcn-docs-nuxt?style=flat&colorA=18181b&colorB=18181b).
+>
 > Changes made :
 > - replaced tailwindcss with unocss to get same result with theme customization behavior
 > - eslint config use unocss instead of tailwindcss (classes order change)
 > - lint with `semi: false`
 > - added `@iconify-json/vscode-icons` by default
+> - use pnpm instead of bun
 
 Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customizable. Compatible. Open Source.**
 
@@ -42,7 +44,7 @@ Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customiz
 
 ## Contributing
 
-1. Clone this repository
+1. Clone this repository.
 2. Install dependencies `bun install`.
 3. Use `bun run dev` to start dev server.
 
@@ -61,7 +63,7 @@ MIT
 [npm-version-src]: https://img.shields.io/npm/v/shadcn-unocss-docs-nuxt?style=flat&colorA=18181b&colorB=18181b
 [npm-version-href]: https://npmjs.com/package/shadcn-unocss-docs-nuxt
 [npm-downloads-src]: https://img.shields.io/npm/dm/shadcn-unocss-docs-nuxt?style=flat&colorA=18181b&colorB=18181b
-[npm-downloads-href]: https://npmjs.com/package/shadcn-unocss-docs-nuxt
+[npm-downloads-href]: https://npm.chart.dev/shadcn-unocss-docs-nuxt?primary=neutral&gray=zinc&theme=light
 [license-src]: https://img.shields.io/github/license/ZTL-UwU/shadcn-docs-nuxt.svg?style=flat&colorA=18181b&colorB=18181b
 [license-href]: https://github.com/ZTL-UwU/shadcn-docs-nuxt/blob/main/LICENSE
 [nuxt-src]: https://img.shields.io/badge/Built%20With%20Nuxt-18181B?logo=nuxt.js

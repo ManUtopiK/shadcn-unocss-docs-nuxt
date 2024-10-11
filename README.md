@@ -15,12 +15,11 @@
 > - replaced tailwindcss with unocss to get same result with theme customization behavior
 > - eslint config use unocss instead of tailwindcss (classes order change)
 > - lint with `semi: false`
-> - added `@iconify-json/vscode-icons` by default
 > - use pnpm instead of bun
 
 Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customizable. Compatible. Open Source.**
 
-- [Documentation / Demo](https://shadcn-docs.nuxt.dev/)
+- [Documentation / Demo](https://shadcn-docs-nuxt.vercel.app/)
 
 ## Quick Start
 

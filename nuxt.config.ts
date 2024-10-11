@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxtjs/color-mode',
+    'nuxt-og-image',
   ],
   shadcn: {
     prefix: 'Ui',
@@ -59,6 +60,9 @@ export default defineNuxtConfig({
         baseUrl: '.',
       },
     },
+  },
+  build: {
+    transpile: ['shiki'],
   },
   compatibilityDate: '2024-07-05',
 })

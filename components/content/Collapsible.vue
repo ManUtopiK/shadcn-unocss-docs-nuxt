@@ -14,7 +14,7 @@
     </div>
 
     <UiCollapsibleContent class="space-y-2">
-      <div class="rounded-md border px-4 py-3 font-mono text-sm">
+      <div class="border rounded-md px-4 py-3 text-sm font-mono">
         <ContentSlot :use="$slots.content" unwrap="p" />
         <ContentSlot unwrap="p" />
       </div>
@@ -23,7 +23,7 @@
 
   <UiCollapsible v-else-if="variant === 'simple'" v-model:open="isOpen">
     <UiCollapsibleTrigger class="w-full text-left">
-      <div class="flex w-full gap-1">
+      <div class="w-full flex gap-1">
         <SmartIcon
           name="lucide:chevron-down"
           class="self-center transition-all"
@@ -46,8 +46,8 @@
 
 <script setup lang="ts">
 const { variant = 'simple' } = defineProps<{
-  variant?: 'simple' | 'card';
-  title?: string;
-}>();
-const isOpen = ref(false);
+  variant?: 'simple' | 'card'
+  title?: string
+}>()
+const isOpen = ref(false)
 </script>

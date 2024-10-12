@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex size-full flex-col justify-center bg-white p-16"
+    class="size-full flex flex-col justify-center bg-white p-16"
     style="background-size: 120px 120px; background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);"
   >
     <div class="mb-4 flex">
@@ -13,7 +13,7 @@
       <h1 class="text-8xl font-bold">
         {{ title }}
       </h1>
-      <p class="text-4xl leading-tight text-zinc-500">
+      <p class="text-4xl text-zinc-500 leading-tight">
         {{ description }}
       </p>
     </div>
@@ -30,7 +30,7 @@ defineProps({
     type: String,
     required: true,
   },
-});
+})
 
-const config = useConfig().value;
+const config = useConfig().value
 </script>

@@ -28,7 +28,44 @@
     </UiTabsContent>
   </UiTabs>
 
-  <UiCard v-else-if="variant === 'card'" class="[&:not(:first-child)]:mt-5">
+  <UiTabs
+    v-else-if="variant === 'line'"
+    class="relative mr-auto w-full [&:not(:first-child)]:mt-5"
+    :default-value="label(($slots.default?.() ?? [])[0]?.props)"
+  >
+    <div class="flex items-center justify-between pb-3">
+      <UiTabsList class="h-9 w-full justify-start rounded-none border-b bg-transparent p-0">
+        <UiTabsTrigger
+          v-for="(slot, i) in $slots.default?.() ?? []"
+          :key="`${i}${label(slot.props)}`"
+          :value="label(slot.props)"
+          class="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          <SmartIcon
+            v-if="icon(slot?.props)"
+            :name="icon(slot?.props)!"
+            class="mr-1.5 self-center"
+          />
+          {{ label(slot.props) }}
+        </UiTabsTrigger>
+      </UiTabsList>
+    </div>
+
+    <UiTabsContent
+      v-for="(slot, i) in $slots.default?.() ?? []"
+      :key="`${i}${label(slot.props)}`"
+      :value="label(slot.props)"
+      class="relative space-y-10"
+    >
+      <component :is="slot" />
+    </UiTabsContent>
+  </UiTabs>
+
+  <UiCard
+    v-else-if="variant === 'card'"
+    class="[&:not(:first-child)]:mt-5"
+    :class="[inStack && 'mb-0 rounded-none border-none shadow-none']"
+  >
     <UiScrollArea>
       <div class="relative flex overflow-x-auto border-b p-0.5 text-sm">
         <div class="flex p-1">
@@ -73,13 +110,15 @@
 <script setup lang="ts">
 import ScrollBar from '../ui/scroll-area/ScrollBar.vue'
 
-withDefaults(defineProps<{
-  variant?: 'separate' | 'card'
-  padded?: boolean
-}>(), {
-  variant: 'separate',
-  padded: true,
-})
+const {
+  variant = 'separate',
+  padded = true,
+  inStack = false,
+} = defineProps<{
+  variant?: 'separate' | 'card' | 'line';
+  padded?: boolean;
+  inStack?: boolean;
+}>();
 
 const activeTabIndex = ref(0)
 

@@ -41,18 +41,18 @@
 <script setup lang="ts">
 defineProps<{
   announcement?: {
-    to?: string
-    target?: string
-    icon?: string
-    title: string
-  }
+    to?: string;
+    target?: Target;
+    icon?: string;
+    title: string;
+  };
   actions: [{
-    name: string
-    leftIcon?: string
-    rightIcon?: string
-    variant?: 'default' | 'link' | 'destructive' | 'outline' | 'secondary' | 'ghost'
-    to: string
-    target?: string
-  }]
-}>()
+    name: string;
+    leftIcon?: string;
+    rightIcon?: string;
+    variant?: 'default' | 'link' | 'destructive' | 'outline' | 'secondary' | 'ghost';
+    to: string;
+    target?: Target;
+  }];
+}>();
 </script>

@@ -1,7 +1,13 @@
 <template>
-  <div class="[&:not(:first-child)]:mt-5 group-has-[div]:mt-0">
-    <NuxtLink :to="to" :target="target">
-      <UiCard class="relative h-full transition-all" :class="[to && 'hover:bg-muted']">
+  <div class="group-has-[div]:mt-0 [&:not(:first-child)]:mt-5">
+    <NuxtLink :to :target>
+      <UiCard
+        class="relative h-full transition-all"
+        :class="[
+          to && 'hover:bg-muted',
+          inStack && 'mb-0 rounded-none border-none shadow-none',
+        ]"
+      >
         <UiCardHeader v-if="icon || title || $slots.title || description || $slots.description">
           <SmartIcon v-if="icon" class="mb-2" :name="icon" :size="24" />
           <UiCardTitle v-if="title || $slots.title">
@@ -29,12 +35,13 @@
 
 <script setup lang="ts">
 defineProps<{
-  title?: string
-  description?: string
-  footer?: string
-  content?: string
-  to?: string
-  target?: string
-  icon?: string
-}>()
+  title?: string;
+  description?: string;
+  footer?: string;
+  content?: string;
+  to?: string;
+  target?: Target;
+  icon?: string;
+  inStack?: boolean;
+}>();
 </script>

@@ -1,7 +1,11 @@
 <template>
   <UiAlert
     class="transition-all [&:not(:first-child)]:mt-5"
-    :class="[typeTwClass[type], to && 'cursor-pointer hover:bg-muted/50']"
+    :class="[
+      typeTwClass[type],
+      to && 'cursor-pointer hover:bg-muted/50',
+      inStack && 'm-0 rounded-none border-none',
+    ]"
     @click="alertClick"
   >
     <SmartIcon v-if="icon && title" :name="icon" :size="16" />
@@ -9,9 +13,9 @@
       {{ title }}
     </UiAlertTitle>
     <UiAlertDescription>
-      <div class="flex flex-row space-x-2">
+      <div class="flex flex-row gap-2">
         <SmartIcon v-if="icon && !title" :name="icon" :size="16" class="mb-[2px] min-w-5 self-center" />
-        <span :class="[to && 'pr-3']">
+        <span class="w-full" :class="[to && 'pr-3']">
           <slot />
         </span>
       </div>
@@ -21,17 +25,21 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  title?: string
-  icon?: string
-  type?: 'default' | 'info' | 'warning' | 'success' | 'danger'
-  to?: string
-  target?: string
-  external?: boolean
-}>(), {
-  type: 'default',
-  external: undefined,
-})
+const {
+  to,
+  target,
+  type = 'default',
+  external = undefined,
+  inStack = false,
+} = defineProps<{
+  title?: string;
+  icon?: string;
+  type?: 'default' | 'info' | 'warning' | 'success' | 'danger';
+  to?: string;
+  target?: Target;
+  external?: boolean;
+  inStack?: boolean;
+}>();
 
 const typeTwClass = {
   default: '',
@@ -42,16 +50,16 @@ const typeTwClass = {
 }
 
 async function alertClick() {
-  if (props.to) {
-    if (props.target) {
-      await navigateTo(props.to, {
-        external: props.external ?? props.to.startsWith('http'),
-        open: { target: props.target },
-      })
+  if (to) {
+    if (target) {
+      await navigateTo(to, {
+        external: external ?? to.startsWith('http'),
+        open: { target },
+      });
     } else {
-      await navigateTo(props.to, {
-        external: props.external ?? props.to.startsWith('http'),
-      })
+      await navigateTo(to, {
+        external: external ?? to.startsWith('http'),
+      });
     }
   }
 }

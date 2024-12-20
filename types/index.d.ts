@@ -1,9 +1,10 @@
 interface DefaultConfig {
   site: {
-    name: string
-    description: string
-    ogImage: string
-  }
+    name: string;
+    description: string;
+    ogImage: string;
+    ogImageComponent: string;
+  };
   theme: {
     customizable: boolean
     color: Color
@@ -93,4 +94,6 @@ type Color =
   | 'green'
   | 'blue'
   | 'yellow'
-  | 'violet'
+  | 'violet';
+
+type Target = '_blank' | '_parent' | '_self' | '_top' | (string & object) | null | undefined;

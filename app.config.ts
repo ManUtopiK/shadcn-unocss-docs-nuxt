@@ -5,11 +5,25 @@ export default defineAppConfig({
       description: 'Beautifully designed Nuxt Content template built with shadcn-vue. Customizable. Compatible. Open Source.',
       ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
+      ogImageColor: 'dark',
+      umami: {
+        enable: true,
+        src: 'https://cloud.umami.is/script.js',
+        dataWebsiteId: 'd793fbf3-461e-4e26-9ec9-4e9141df96ee',
+      },
     },
     theme: {
       customizable: true,
       color: 'zinc',
       radius: 0.5,
+    },
+    banner: {
+      enable: false,
+      showClose: true,
+      content: 'Welcome to **shadcn-docs-nuxt**',
+      to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt',
+      target: '_blank',
+      border: true,
     },
     header: {
       title: 'shadcn-docs',
@@ -58,6 +72,7 @@ export default defineAppConfig({
         title: 'Use This Template',
         to: '/getting-started/installation',
         target: '_self',
+        showLinkIcon: true,
       }],
       links: [{
         icon: 'lucide:github',
@@ -68,11 +83,20 @@ export default defineAppConfig({
     aside: {
       useLevel: true,
       collapse: false,
+      collapseLevel: 1,
+      folderStyle: 'default',
     },
     main: {
       breadCrumb: true,
       showTitle: true,
       codeCopyToast: true,
+      editLink: {
+        enable: true,
+        pattern: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt/edit/main/content/:path',
+        text: 'Edit this page',
+        icon: 'lucide:square-pen',
+        placement: ['docsFooter', 'toc'],
+      },
       codeIcon: {
         'package.json': 'vscode-icons:file-type-node',
         'tsconfig.json': 'vscode-icons:file-type-tsconfig',
@@ -118,7 +142,7 @@ export default defineAppConfig({
       },
     },
     footer: {
-      credits: 'Copyright © 2024',
+      credits: 'Made with ❤️ by [**Tony Zhang**](https://github.com/ZTL-UwU/)',
       links: [
         {
           title: 'shadcn-vue',
@@ -140,12 +164,21 @@ export default defineAppConfig({
         icon: 'lucide:star',
         to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt',
         target: '_blank',
+        showLinkIcon: true,
       }, {
         title: 'Create Issues',
         icon: 'lucide:circle-dot',
         to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt/issues',
         target: '_blank',
+        showLinkIcon: true,
       }],
+      carbonAds: {
+        enable: true,
+        disableInDev: true,
+        code: 'CW7ITKJN',
+        placement: 'shadcn-docs-nuxtvercelapp',
+        format: 'cover',
+      },
     },
     search: {
       enable: true,

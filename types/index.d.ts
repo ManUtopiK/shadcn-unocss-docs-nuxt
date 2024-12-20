@@ -4,11 +4,25 @@ interface DefaultConfig {
     description: string;
     ogImage: string;
     ogImageComponent: string;
+    ogImageColor: 'dark' | 'light';
+    umami: {
+      enable: boolean;
+      src: string;
+      dataWebsiteId: string;
+    };
   };
   theme: {
     customizable: boolean;
     color: Color;
     radius: number;
+  };
+  banner: {
+    enable: boolean;
+    showClose: boolean;
+    content: string;
+    to: string;
+    target: Target;
+    border: boolean;
   };
   header: {
     showLoadingIndicator: boolean;
@@ -25,6 +39,7 @@ interface DefaultConfig {
       title: string;
       to: string;
       target: string;
+      showLinkIcon: boolean;
       links: ({
         title: string;
         to: string;
@@ -41,6 +56,8 @@ interface DefaultConfig {
   aside: {
     useLevel: boolean;
     collapse: boolean;
+    collapseLevel: number;
+    folderStyle: 'default' | 'tree' | 'group';
   };
   main: {
     breadCrumb: boolean;
@@ -48,10 +65,18 @@ interface DefaultConfig {
     codeCopyToast: boolean;
     codeCopyToastText: string;
     fieldRequiredText: string;
+    padded: boolean;
+    editLink: {
+      enable: boolean;
+      pattern: string;
+      text: string;
+      icon: string;
+      placement: ('docsFooter' | 'toc')[];
+    };
+    pm: ('npm' | 'pnpm' | 'bun' | 'yarn')[];
     codeIcon: {
       [key: string]: string;
     };
-    padded: boolean;
   };
   footer: {
     credits: string;
@@ -67,11 +92,19 @@ interface DefaultConfig {
     enableInMobile: boolean;
     title: string;
     links: ({
-      icon: string;
       title: string;
+      icon: string;
       to: string;
       target: string;
+      showLinkIcon: boolean;
     })[];
+    carbonAds: {
+      enable: boolean;
+      disableInDev: boolean;
+      code: string;
+      placement: string;
+      format: 'cover' | 'responsive';
+    };
   };
   search: {
     enable: boolean;

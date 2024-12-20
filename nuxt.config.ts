@@ -46,12 +46,29 @@ export default defineNuxtConfig({
       preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini'],
     },
     navigation: {
-      fields: ['icon', 'badges'],
+      fields: [
+        'icon',
+        'navBadges',
+        'navTruncate',
+        'badges',
+        'toc',
+        'sidebar',
+        'collapse',
+        'editLink',
+        'prevNext',
+        'breadcrumb',
+      ],
     },
     experimental: {
       search: {
         indexed: true,
       },
+    },
+  },
+  icon: {
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 512,
     },
   },
   typescript: {

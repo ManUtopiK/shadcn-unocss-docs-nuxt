@@ -11,18 +11,19 @@
     </span>
   </div>
 
-  <main v-else class="relative py-6" :class="[config.toc.enable && 'lg:grid lg:grid-cols-[1fr_200px] lg:gap-10 lg:py-8']">
-    <div class="mx-auto min-w-0 w-full">
-      <LayoutBreadcrumb v-if="page?.body && config.main.breadCrumb" class="mb-4" />
-
-      <div v-if="config.main.showTitle" class="mb-6 space-y-2">
-        <ProseH1>
-          {{ page?.title }}
-        </ProseH1>
-        <p class="text-lg text-muted-foreground">
-          {{ page?.description }}
-        </p>
-      </div>
+  <main
+    v-else
+    class="relative py-6"
+    :class="[config.toc.enable && (page.toc ?? true) && 'lg:grid lg:grid-cols-[1fr_220px] lg:gap-14 lg:py-8']"
+  >
+    <div class="mx-auto w-full min-w-0">
+      <LayoutBreadcrumb v-if="page?.body && config.main.breadCrumb && (page.breadcrumb ?? true)" class="mb-4" />
+      <LayoutTitle
+        v-if="config.main.showTitle"
+        :title="page?.title"
+        :description="page?.description"
+        :badges="page?.badges"
+      />
 
       <Alert
         v-if="page?.body?.children?.length === 0"
@@ -39,9 +40,9 @@
         class="docs-content"
       />
 
-      <LayoutPrevNext />
+      <LayoutDocsFooter />
     </div>
-    <div v-if="config.toc.enable" class="hidden text-sm lg:block">
+    <div v-if="config.toc.enable && (page.toc ?? true)" class="hidden text-sm lg:block">
       <div class="sticky top-[90px] h-[calc(100vh-3.5rem)] overflow-hidden">
         <LayoutToc :is-small="false" />
       </div>

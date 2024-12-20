@@ -6,9 +6,9 @@
       inStack && 'mb-0 rounded-none border-none shadow-none',
     ]"
   >
-    <div v-if="!inGroup && filename" class="flex border-b p-3 text-sm font-mono">
-      <SmartIcon v-if="icon" :name="icon" class="mr-1.5 self-center" />
-      {{ filename }}
+    <div v-if="!inGroup && filename" class="flex items-center border-b p-3 font-mono text-sm">
+      <SmartIcon v-if="icon" :name="icon" class="mr-1.5" />
+      <span>{{ filename }}</span>
       <CodeCopy :code class="ml-auto mr-1" />
     </div>
 
@@ -16,10 +16,14 @@
       <CodeCopy :code />
     </span>
     <div class="bg-muted/30">
-      <UiScrollArea>
+      <UiScrollArea :style="[parsedMeta.has('height') && `height: ${parsedMeta.get('height')}px`]">
         <div
           class="overflow-x-auto py-3 text-sm"
-          :class="[!inGroup && !filename && 'inline-copy', !language && 'pl-3', !inGroup]"
+          :class="[
+            !inGroup && !filename && 'inline-copy',
+            !language && 'pl-3', !inGroup,
+            parsedMeta.has('line-numbers') && 'show-line-number',
+          ]"
         >
           <slot />
         </div>
@@ -33,35 +37,40 @@
 import type { BuiltinLanguage } from 'shiki';
 import ScrollBar from '../ui/scroll-area/ScrollBar.vue';
 
-const props = defineProps({
-  code: {
-    type: String,
-    default: '',
-  },
-  language: {
-    type: String as PropType<BuiltinLanguage>,
-    default: null,
-  },
-  filename: {
-    type: String,
-    default: null,
-  },
-  inGroup: {
-    type: Boolean,
-    default: false,
-  },
-  inStack: {
-    type: Boolean,
-    default: false,
-  },
-  highlights: {
-    type: Array as () => number[],
-    default: () => [],
-  },
+const {
+  code = '',
+  inGroup = false,
+  inStack = false,
+  language,
+  filename,
+  meta,
+} = defineProps<{
+  code?: string;
+  language?: BuiltinLanguage;
+  filename?: string;
+  inGroup?: boolean;
+  inStack?: boolean;
+  highlights?: number[];
+  meta?: string;
+}>();
+
+const parsedMeta = computed(() => {
+  const split = meta?.split(' ') ?? [];
+  const params = new Map<string, string | undefined>();
+
+  for (const param of split) {
+    const [key, val] = param.split('=');
+    params.set(key, val);
+  }
+
+  return params;
 });
 
 const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon));
-const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.language);
+const icon = computed(() => {
+  const filenameLow = filename?.toLowerCase();
+  return parsedMeta.value.get('icon') || (filenameLow && iconMap.get(filenameLow)) || (language && iconMap.get(language));
+});
 </script>
 
 <style>
@@ -75,7 +84,7 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
 }
 
 .shiki .line.highlight {
-  background-color: hsl(var(--muted) / 0.8);
+  background-color: hsl(var(--muted) / 0.9);
 }
 
 .shiki .line {
@@ -85,5 +94,10 @@ const icon = iconMap.get(props.filename?.toLowerCase()) || iconMap.get(props.lan
 
 .inline-copy .line {
   padding-right: 2.75rem;
+}
+
+.show-line-number .line::before {
+  content: attr(line);
+  @apply text-sm w-5 inline-block text-right mr-4 text-muted-foreground;
 }
 </style>

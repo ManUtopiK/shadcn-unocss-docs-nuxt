@@ -6,11 +6,25 @@ const defaultConfig: DefaultConfig = {
     description: 'Beautifully designed Nuxt Content template built with shadcn-vue. Customizable. Compatible. Open Source.',
     ogImage: '/hero.png',
     ogImageComponent: 'ShadcnDocs',
+    ogImageColor: 'light',
+    umami: {
+      enable: false,
+      src: 'https://cloud.umami.is/script.js',
+      dataWebsiteId: '',
+    },
   },
   theme: {
     customizable: true,
     color: 'zinc',
     radius: 0.5,
+  },
+  banner: {
+    enable: false,
+    showClose: true,
+    content: 'Welcome to **shadcn-docs-nuxt**',
+    to: '',
+    target: '_blank',
+    border: true,
   },
   header: {
     showLoadingIndicator: true,
@@ -29,6 +43,8 @@ const defaultConfig: DefaultConfig = {
   aside: {
     useLevel: true,
     collapse: false,
+    collapseLevel: 1,
+    folderStyle: 'default',
   },
   main: {
     breadCrumb: true,
@@ -37,6 +53,14 @@ const defaultConfig: DefaultConfig = {
     codeCopyToastText: 'Copied to clipboard!',
     fieldRequiredText: 'required',
     padded: true,
+    editLink: {
+      enable: false,
+      pattern: '',
+      text: 'Edit this page',
+      icon: 'lucide:square-pen',
+      placement: ['docsFooter'],
+    },
+    pm: ['npm', 'pnpm', 'bun', 'yarn'],
     codeIcon: {
       'package.json': 'vscode-icons:file-type-node',
       'tsconfig.json': 'vscode-icons:file-type-tsconfig',
@@ -76,6 +100,7 @@ const defaultConfig: DefaultConfig = {
       'npx': 'vscode-icons:file-type-npm',
       'yarn': 'vscode-icons:file-type-yarn',
       'bun': 'vscode-icons:file-type-bun',
+      'deno': 'vscode-icons:file-type-deno',
       'yml': 'vscode-icons:file-type-yaml',
       'json': 'vscode-icons:file-type-json',
       'terminal': 'lucide:terminal',
@@ -90,6 +115,13 @@ const defaultConfig: DefaultConfig = {
     enableInMobile: false,
     title: 'On This Page',
     links: [],
+    carbonAds: {
+      enable: false,
+      disableInDev: false,
+      code: '',
+      placement: '',
+      format: 'cover',
+    },
   },
   search: {
     enable: true,
@@ -113,6 +145,7 @@ export function useConfig() {
       const header = processedConfig.header;
       const main = processedConfig.main;
       const aside = processedConfig.aside;
+      const banner = processedConfig.banner;
       const footer = processedConfig.footer;
       const toc = processedConfig.toc;
 
@@ -124,6 +157,11 @@ export function useConfig() {
           ...navKeyFromPath(route.path, 'header', navigation.value || []),
           ...page.value?.header,
         } as typeof header,
+        banner: {
+          ...banner,
+          ...navKeyFromPath(route.path, 'banner', navigation.value || []),
+          ...page.value?.banner,
+        } as typeof banner,
         main: {
           ...main,
           ...navKeyFromPath(route.path, 'main', navigation.value || []),

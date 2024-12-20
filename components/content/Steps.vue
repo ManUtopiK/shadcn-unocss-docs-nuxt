@@ -19,5 +19,5 @@ const levelClass = {
   4: '[&>h4]:step',
   5: '[&>h5]:step',
   6: '[&>h6]:step',
-}
+};
 </script>

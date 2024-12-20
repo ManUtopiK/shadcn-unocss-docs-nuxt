@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Tabs from './Tabs.vue'
+import Tabs from './Tabs.vue';
 
 const { inStack = false } = defineProps<{
   inStack?: boolean;

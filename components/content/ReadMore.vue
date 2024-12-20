@@ -27,5 +27,5 @@ const computedTitle = computed<string>(
       return to;
     }
   },
-)
+);
 </script>

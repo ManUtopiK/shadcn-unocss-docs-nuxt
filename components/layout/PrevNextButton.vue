@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  prevNext: any
-  side: 'left' | 'right'
-}>()
+  prevNext: any;
+  side: 'left' | 'right';
+}>();
 </script>

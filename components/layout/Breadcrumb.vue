@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
+const route = useRoute();
 
-const breadcrumbs = computed(() => useBreadcrumb(route.path))
+const breadcrumbs = computed(() => useBreadcrumb(route.path));
 </script>

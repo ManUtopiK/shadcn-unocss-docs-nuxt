@@ -14,14 +14,14 @@
 </template>
 
 <script setup lang="ts">
-import type { TocLink } from '@nuxt/content'
+import type { TocLink } from '@nuxt/content';
 
 defineProps<{
-  links: TocLink[]
-  level: number
-}>()
+  links: TocLink[];
+  level: number;
+}>();
 
-const { activeHeadings, updateHeadings } = useScrollspy()
+const { activeHeadings, updateHeadings } = useScrollspy();
 
 onMounted(() =>
   updateHeadings([
@@ -30,5 +30,5 @@ onMounted(() =>
     ...document.querySelectorAll('.docs-content h3'),
     ...document.querySelectorAll('.docs-content h4'),
   ]),
-)
+);
 </script>

@@ -77,9 +77,9 @@
 </template>
 
 <script setup lang="ts">
-import { themes } from '@/lib/registry/themes'
+import { themes } from '@/lib/registry/themes';
 
-const { themeClass, theme, radius, setTheme, setRadius } = useThemes()
+const { themeClass, theme, radius, setTheme, setRadius } = useThemes();
 
 // Create an array of color values
 const allColors: Color[] = [
@@ -95,35 +95,35 @@ const allColors: Color[] = [
   'neutral',
   'yellow',
   'violet',
-]
+];
 
-const RADII = [0, 0.25, 0.5, 0.75, 1]
+const RADII = [0, 0.25, 0.5, 0.75, 1];
 
 // Whenever the theme value changes, update the document class list
 watch(theme, () => {
-  setClassTheme()
-})
+  setClassTheme();
+});
 
 // Whenever the radius value changes, update the document style
 watch(radius, () => {
-  setStyleRadius()
-})
+  setStyleRadius();
+});
 
 function setClassTheme() {
   document.body.classList.remove(
     ...allColors.map(color => `theme-${color}`),
-  )
-  document.body.classList.add(themeClass.value)
+  );
+  document.body.classList.add(themeClass.value);
 }
 
 function setStyleRadius() {
-  document.body.style.setProperty('--radius', `${radius.value}rem`)
+  document.body.style.setProperty('--radius', `${radius.value}rem`);
 }
 
 function backgroundColor(color: Color) {
-  const bg = themes.find(theme => theme.name === color)
-  return `hsl(${bg?.activeColor.light})`
+  const bg = themes.find(theme => theme.name === color);
+  return `hsl(${bg?.activeColor.light})`;
 }
 
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 </script>

@@ -46,8 +46,8 @@
 
 <script setup lang="ts">
 const { variant = 'simple' } = defineProps<{
-  variant?: 'simple' | 'card'
-  title?: string
-}>()
-const isOpen = ref(false)
+  variant?: 'simple' | 'card';
+  title?: string;
+}>();
+const isOpen = ref(false);
 </script>

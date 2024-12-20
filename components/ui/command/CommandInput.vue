@@ -11,24 +11,24 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils';
+import { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'radix-vue';
+import { computed, type HTMLAttributes } from 'vue';
 
 defineOptions({
   inheritAttrs: false,
-})
+});
 
 const props = defineProps<ComboboxInputProps & {
-  class?: HTMLAttributes['class']
-  loading?: boolean
-}>()
+  class?: HTMLAttributes['class'];
+  loading?: boolean;
+}>();
 
 const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
+  const { class: _, ...delegated } = props;
 
-  return delegated
-})
+  return delegated;
+});
 
-const forwardedProps = useForwardProps(delegatedProps)
+const forwardedProps = useForwardProps(delegatedProps);
 </script>

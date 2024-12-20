@@ -30,7 +30,7 @@ defineProps({
     type: String,
     required: true,
   },
-})
+});
 
 const { logo, title: siteTitle, showTitle } = useConfig().value.header;
 </script>

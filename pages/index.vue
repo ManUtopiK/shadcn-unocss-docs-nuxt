@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-const { page } = useContent()
-const config = useConfig()
+const { page } = useContent();
+const config = useConfig();
 
 useSeoMeta({
   title: `${page.value?.title ?? '404'} - ${config.value.site.name}`,
@@ -21,5 +21,5 @@ useSeoMeta({
   ogDescription: page.value?.description,
   ogImage: config.value.site.ogImage,
   twitterCard: 'summary_large_image',
-})
+});
 </script>

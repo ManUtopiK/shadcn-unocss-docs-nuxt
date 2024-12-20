@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!page?.body"
-    class="flex h-full items-center justify-center"
+    class="h-full flex items-center justify-center"
   >
     <h3 class="scroll-m-20 border-r px-4 py-3 text-2xl font-semibold">
       404
@@ -12,7 +12,7 @@
   </div>
 
   <main v-else class="relative py-6" :class="[config.toc.enable && 'lg:grid lg:grid-cols-[1fr_200px] lg:gap-10 lg:py-8']">
-    <div class="mx-auto w-full min-w-0">
+    <div class="mx-auto min-w-0 w-full">
       <LayoutBreadcrumb v-if="page?.body && config.main.breadCrumb" class="mb-4" />
 
       <div v-if="config.main.showTitle" class="mb-6 space-y-2">
@@ -50,8 +50,8 @@
 </template>
 
 <script setup lang="ts">
-const { page } = useContent()
-const config = useConfig()
+const { page } = useContent();
+const config = useConfig();
 
 useSeoMeta({
   title: `${page.value?.title ?? '404'} - ${config.value.site.name}`,

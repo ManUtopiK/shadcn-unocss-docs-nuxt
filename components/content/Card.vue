@@ -1,5 +1,5 @@
 <template>
-  <div class="group-has-[div]:mt-0 [&:not(:first-child)]:mt-5">
+  <div class="[&:not(:first-child)]:mt-5 group-has-[div]:mt-0">
     <NuxtLink :to :target>
       <UiCard
         class="relative h-full transition-all"

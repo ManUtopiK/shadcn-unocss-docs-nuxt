@@ -152,4 +152,4 @@ export default defineAppConfig({
       inAside: false,
     },
   },
-})
+});

@@ -14,7 +14,6 @@
 > Changes made :
 > - replaced tailwindcss with unocss to get same result with theme customization behavior
 > - eslint config use unocss instead of tailwindcss (classes order change)
-> - lint with `semi: false`
 > - use pnpm instead of bun
 
 Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customizable. Compatible. Open Source.**

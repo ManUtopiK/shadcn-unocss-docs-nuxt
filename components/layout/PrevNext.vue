@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-const { prev, next } = useContent()
+const { prev, next } = useContent();
 </script>

@@ -34,12 +34,12 @@
     :default-value="label(($slots.default?.() ?? [])[0]?.props)"
   >
     <div class="flex items-center justify-between pb-3">
-      <UiTabsList class="h-9 w-full justify-start rounded-none border-b bg-transparent p-0">
+      <UiTabsList class="h-9 w-full justify-start border-b rounded-none bg-transparent p-0">
         <UiTabsTrigger
           v-for="(slot, i) in $slots.default?.() ?? []"
           :key="`${i}${label(slot.props)}`"
           :value="label(slot.props)"
-          class="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+          class="relative h-9 border-b-2 border-b-transparent rounded-none bg-transparent px-4 pb-3 pt-2 text-muted-foreground font-semibold shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
         >
           <SmartIcon
             v-if="icon(slot?.props)"
@@ -108,7 +108,7 @@
 </template>
 
 <script setup lang="ts">
-import ScrollBar from '../ui/scroll-area/ScrollBar.vue'
+import ScrollBar from '../ui/scroll-area/ScrollBar.vue';
 
 const {
   variant = 'separate',
@@ -120,14 +120,14 @@ const {
   inStack?: boolean;
 }>();
 
-const activeTabIndex = ref(0)
+const activeTabIndex = ref(0);
 
-const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon))
+const iconMap = new Map(Object.entries(useConfig().value.main.codeIcon));
 function icon(props: any) {
-  return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language)
+  return props?.icon || iconMap.get(props?.filename?.toLowerCase()) || iconMap.get(props?.language);
 }
 
 function label(props: any) {
-  return props?.label || props?.filename
+  return props?.label || props?.filename;
 }
 </script>

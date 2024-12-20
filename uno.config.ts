@@ -1,13 +1,13 @@
-import extractorMdc from '@unocss/extractor-mdc'
+import extractorMdc from '@unocss/extractor-mdc';
 import {
   defineConfig,
   presetAttributify,
   presetIcons,
   presetTypography,
   presetUno,
-} from 'unocss'
-import presetAnimations from 'unocss-preset-animations'
-import { builtinColors, presetShadcn } from 'unocss-preset-shadcn'
+} from 'unocss';
+import presetAnimations from 'unocss-preset-animations';
+import { builtinColors, presetShadcn } from 'unocss-preset-shadcn';
 
 export default defineConfig({
   theme: {
@@ -36,7 +36,7 @@ export default defineConfig({
         [counter-increment:step]
         before:[content:counter(step)] before:absolute before:w-9 before:h-9 before:bg-muted before:rounded-full before:font-mono before:font-medium before:text-center before:text-base before:inline-flex before:items-center before:justify-center before:-indent-px before:border-4 before:border-background
         before:-ml-[50px] before:-mt-1
-      `
+      `;
     }],
   ],
   extractors: [
@@ -53,4 +53,4 @@ export default defineConfig({
       ],
     },
   },
-})
+});

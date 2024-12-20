@@ -1,5 +1,5 @@
 <template>
-  <UiCard class="divide-y overflow-hidden [&:not(:first-child)]:mt-5">
+  <UiCard class="overflow-hidden [&:not(:first-child)]:mt-5 divide-y">
     <div
       v-for="(slot, i) in $slots.default?.() ?? []"
       :key="i"

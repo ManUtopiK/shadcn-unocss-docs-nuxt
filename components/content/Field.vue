@@ -27,12 +27,12 @@
 
 <script setup lang="ts">
 defineProps<{
-  name: string
-  type?: string
-  required?: boolean
-  description?: string
-  defaultValue?: string
-}>()
+  name: string;
+  type?: string;
+  required?: boolean;
+  description?: string;
+  defaultValue?: string;
+}>();
 
-const { fieldRequiredText } = useConfig().value.main
+const { fieldRequiredText } = useConfig().value.main;
 </script>
